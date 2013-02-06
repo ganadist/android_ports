@@ -2,17 +2,6 @@
 #include <machine/asm.h>
 #include "syscall_no.h"
 
-ENTRY(fanotify_init)
-    .save   {r4, r7}
-    stmfd   sp!, {r4, r7}
-    ldr     r7, =__NR_fanotify_init
-    swi     #0
-    ldmfd   sp!, {r4, r7}
-    movs    r0, r0
-    bxpl    lr
-    b       __readahead_set_errno
-END(signalfd)
-
 ENTRY(fanotify_mark)
     .save   {r4, r7}
     stmfd   sp!, {r4, r7}
@@ -22,4 +11,4 @@ ENTRY(fanotify_mark)
     movs    r0, r0
     bxpl    lr
     b       __readahead_set_errno
-END(signalfd)
+END(fanotify_mark)

@@ -11,4 +11,4 @@ ENTRY(inotify_init1)
     movs    r0, r0
     bxpl    lr
     b       __readahead_set_errno
-END(signalfd)
+END(inotify_init1)

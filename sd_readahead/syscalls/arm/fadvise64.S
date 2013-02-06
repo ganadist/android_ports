@@ -2,13 +2,13 @@
 #include <machine/asm.h>
 #include "syscall_no.h"
 
-ENTRY(signalfd4)
+ENTRY(arm_fadvise64_64)
     .save   {r4, r7}
     stmfd   sp!, {r4, r7}
-    ldr     r7, =__NR_signalfd4
+    ldr     r7, =__NR_arm_fadvise64_64
     swi     #0
     ldmfd   sp!, {r4, r7}
     movs    r0, r0
     bxpl    lr
     b       __readahead_set_errno
-END(signalfd)
+END(arm_fadvise64_64)

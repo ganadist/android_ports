@@ -2,11 +2,13 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 # missing syscalls in bionic
+
 LOCAL_SRC_FILES := \
-	syscalls/arm_fadvise64_64.S \
-	syscalls/fanotify.S \
-	syscalls/inotify.S \
-	syscalls/signalfd.S \
+	syscalls/$(TARGET_ARCH)/fadvise64.S \
+	syscalls/$(TARGET_ARCH)/fanotify_init.S \
+	syscalls/$(TARGET_ARCH)/fanotify_mark.S \
+	syscalls/$(TARGET_ARCH)/inotify_init1.S \
+	syscalls/$(TARGET_ARCH)/signalfd4.S \
 	syscalls/errno.c \
 	syscalls/fadvise.c \
 
